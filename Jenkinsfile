@@ -1,4 +1,4 @@
-#!/groovy
+#!groovy
 pipeline {
     agent none
     stages {
@@ -12,7 +12,6 @@ pipeline {
                         echo "First stage is running in parallel"
                     }
                     }
-                }
                 stage('Second Run') {
                     agent {
                         docker { image 'node:7-alpine' }
@@ -24,5 +23,3 @@ pipeline {
                 }
             }
         }
-    }
-}
