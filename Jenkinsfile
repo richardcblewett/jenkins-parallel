@@ -1,5 +1,12 @@
 #!groovy
 pipeline {
+   options {
+    buildDiscarder(logRotator(numToKeepStr: '5'))
+    disableConcurrentBuilds()
+    ansiColor('xterm')
+    timestamps()
+    timeout(time: 10) 
+  }
     agent none
     stages {
         stage('Parallel Testing') {
