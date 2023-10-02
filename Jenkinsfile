@@ -2,14 +2,14 @@
 node {
 //    parallel {
         stage('First Run') {
-            docker.image('ubuntu').pull() {
+//            docker.image('ubuntu') {
                 echo "First stage is running in parallel"
-            }
+//            }
         }
         stage('Second Run') {
-            docker.image('redhat/ubi8-minimal').pull() {
+//            docker.image('redhat/ubi8-minimal') {
                 echo "Second stage is running in parallel"
-            }
+//            }
         }
 //    }
 }
