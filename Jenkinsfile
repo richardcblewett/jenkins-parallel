@@ -1,12 +1,12 @@
 #!groovy
 pipeline {
-   options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-    disableConcurrentBuilds()
-    ansiColor('xterm')
-    timestamps()
-    timeout(time: 10) 
-  }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '5'))
+        disableConcurrentBuilds()
+        ansiColor('xterm')
+        timestamps()
+        timeout(time: 10)
+    }
     agent none
     stages {
         stage('Parallel Testing') {
@@ -18,7 +18,7 @@ pipeline {
                     steps {
                         echo "First stage is running in parallel"
                     }
-                    }
+                }
                 stage('Second Run') {
                     agent {
                         docker { image 'node:7-alpine' }
@@ -26,7 +26,8 @@ pipeline {
                     steps {
                         echo "Second stage is running in parallel"
                     }
-                    }
                 }
             }
         }
+    }
+}
