@@ -1,6 +1,6 @@
 #!groovy
 node {
-    parallel {
+//    parallel {
         stage('First Run') {
             docker.image('maven:3-alpine') {
                 echo "First stage is running in parallel"
@@ -11,5 +11,5 @@ node {
                 echo "Second stage is running in parallel"
             }
         }
-    }
+//    }
 }
