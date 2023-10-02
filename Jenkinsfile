@@ -1,15 +1,15 @@
 #!groovy
 node {
     parallel (
-        stage('First Run') {
+           'one': {stage('First Run') {
 //            docker.image('ubuntu') {
             echo "First stage is running in parallel"
 //            }
-        },
-        stage('Second Run') {
+        }},
+            'two': {stage('Second Run') {
 //            docker.image('redhat/ubi8-minimal') {
             echo "Second stage is running in parallel"
 //            }
-        }
+        }}
     )
 }
