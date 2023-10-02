@@ -10,20 +10,12 @@ pipeline {
         stage('Parallel Testing') {
             parallel {
                 stage('First Run') {
-                    agent {
-                        docker { image 'maven:3-alpine' }
-                    }
-                    steps {
-                        echo "First stage is running in parallel"
-                    }
+                    docker { image 'maven:3-alpine' }
+                    echo "First stage is running in parallel"
                 }
                 stage('Second Run') {
-                    agent {
-                        docker { image 'node:7-alpine' }
-                    }
-                    steps {
-                        echo "Second stage is running in parallel"
-                    }
+                    docker { image 'node:7-alpine' }
+                    echo "Second stage is running in parallel"
                 }
             }
         }
