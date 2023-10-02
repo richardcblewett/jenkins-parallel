@@ -2,12 +2,12 @@
 node {
 //    parallel {
         stage('First Run') {
-            docker.image('maven:3-alpine') {
+            docker.image('ubuntu') {
                 echo "First stage is running in parallel"
             }
         }
         stage('Second Run') {
-            docker.image('node:7-alpine') {
+            docker.image('redhat/ubi8-minimal') {
                 echo "Second stage is running in parallel"
             }
         }
